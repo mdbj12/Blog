@@ -19,14 +19,20 @@ export default function Homepage(){
     return (
         <main>
             <Navbar />
-            <header>Welcome to my Blog!</header>
-            <div>
+            <div className="landing-page" id="home">
+                <h1>Welcome to my Blog!</h1>
+                <h2>Just a place for me to dump my thoughts...</h2>
+            </div>
+            <div id="blogs" className="blogs">
                 <h1>My Recent Posts</h1>
                 <ul>
                     {blog.map(post => (
                         <li key={post.id}>{post.text}</li>
                     ))}
                 </ul>
+            </div>
+            <div id="thoughts" className="thoughts">
+                <h1>My Recent Thoughts</h1>
             </div>
         </main>
     )

@@ -1,11 +1,10 @@
+import React from 'react';
 import Homepage from './Homepage';
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <div className='app'>
       <Homepage/>
     </div>
   );
 }
-
-export default App;

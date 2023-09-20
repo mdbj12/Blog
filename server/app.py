@@ -16,18 +16,18 @@ migrate = Migrate(app, db)
 db.init_app(app)
 api = Api(app)
 
-allowed_ip = ''
-class IPValidation(Resource):
-    def get(self):
-        # get the users IP address
-        user_ip = request.remote_addr
-        print(user_ip)
-        # check if the users ip matches the allowed ip
-        if user_ip == allowed_ip:
-            return jsonify({user_ip: True}), 200
-        else:
-            return jsonify({user_ip: False}), 403
-api.add_resource(IPValidation, '/validate-ip')
+# allowed_ip = ''
+# class IPValidation(Resource):
+#     def get(self):
+#         # get the users IP address
+#         user_ip = request.remote_addr
+#         print(user_ip)
+#         # check if the users ip matches the allowed ip
+#         if user_ip == allowed_ip:
+#             return jsonify({user_ip: True}), 200
+#         else:
+#             return jsonify({user_ip: False}), 403
+# api.add_resource(IPValidation, '/validate-ip')
 
 class Users(Resource):
     def get(self):
