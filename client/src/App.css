@@ -5,7 +5,13 @@ html {
 body {
     width: 100vw;
     margin: 0rem;
+    /* overflow-x hides and disables the vertical scroll */
     overflow-x: hidden;
+}
+
+/* hides scroll bar from being seen */
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .app {

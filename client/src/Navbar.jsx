@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 export default function Navbar() {
-    const [isAllowed, setIsAllowed] = useState(false)
+    // const [isAllowed, setIsAllowed] = useState(false)
 
+    // fetches the ip address from the backend validation (does not work atm, will fix/debug later)
     // useEffect(() => {
     //     // Get request to the Flask API Endpoint
     //     fetch('http://localhost:5000/validate-ip')

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import THREE_D_OBJECT from './THREE_D_OBJECT'
 
 export default function Homepage(){
     const [blog, setBlog] = useState([])
     // const [user, setUser] = useState([])
 
+    // fetching the blog data from the back end
     useEffect(() => {
         fetch('http://localhost:5000/blogs')
         .then((res) => res.json())
@@ -19,6 +21,7 @@ export default function Homepage(){
     return (
         <main>
             <Navbar />
+            <THREE_D_OBJECT />
             <div className="landing-page" id="home">
                 <h1>Welcome to my Blog!</h1>
                 <h2>Just a place for me to dump my thoughts...</h2>
