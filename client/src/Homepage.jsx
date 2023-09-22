@@ -4,7 +4,7 @@ import THREE_D_OBJECT from './THREE_D_OBJECT'
 
 export default function Homepage(){
     const [blog, setBlog] = useState([])
-    // const [user, setUser] = useState([])
+    const [thought, setThought] = useState([])
 
     // fetching the blog data from the back end
     useEffect(() => {
@@ -14,7 +14,19 @@ export default function Homepage(){
             setBlog(data)
         })
         .catch((error) => {
-            console.error('Error fetching Data: ', error)
+            console.error('Error fetching blogs: ', error)
+        })
+    }, [])
+
+    // fetching the thought data from the back end
+    useEffect(() => {
+        fetch('http://localhost:5000/thoughts')
+        .then((res) => res.json())
+        .then((data) => {
+            setThought(data)
+        })
+        .catch((error) => {
+            console.error('Error fetching thoughts: ', error)
         })
     }, [])
 
@@ -36,6 +48,11 @@ export default function Homepage(){
             </div>
             <div id="thoughts" className="thoughts">
                 <h1>My Recent Thoughts</h1>
+                <ul>
+                    {thought.map(post => (
+                        <li key={post.id}>{post.text}</li>
+                    ))}
+                </ul>
             </div>
         </main>
     )
