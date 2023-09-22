@@ -1,5 +1,5 @@
 from app import app
-from models import db, User, Blog
+from models import db, User, Blog, Thought
 import click
 
 with app.app_context():
@@ -35,9 +35,10 @@ with app.app_context():
         elif user_options == 2:
             menu_options = 0
 
-            while menu_options != 2:
+            while menu_options != 3:
                 click.echo('(1) Write a new post?')
-                click.echo('(2) Back to UserIDs...')
+                click.echo('(2) Jot down your thoughts?')
+                click.echo('(3) Back to UserIDs...')
 
                 menu_options = int(input())
 
@@ -50,7 +51,7 @@ with app.app_context():
 
                     while True:
                         try:
-                            user_id = int(input('Search a UserID: '))
+                            user_id = int(input('Search for a UserID: '))
                         except ValueError:
                             click.echo('Enter Valid UserID')
                             continue
@@ -77,6 +78,41 @@ with app.app_context():
                     continue
 
                 elif menu_options == 2:
+                    users = db.session.query(User).all()
+                    user_info = dict()
+                    for user in users:
+                        user_info[user.id] = user
+                        click.echo(user.username)
+
+                    while True:
+                        try:
+                            user_id = int(input('Search for a UserID: '))
+                        except ValueError:
+                            click.echo('Enter a valid ID')
+                            continue
+                        if user_id not in list(user_info.keys()):
+                            click.echo('UserID does not exist!')
+                        else:
+                            break
+
+                    @click.command()
+                    @click.option('--text', prompt='Jot down your thoughts!')
+
+                    def add_thought(text, user_id=user_id):
+                        new_thought = Thought(
+                            text = text,
+                            user_id = user_id
+                        )
+
+                        db.session.add(new_thought)
+                        db.session.commit()
+                        click.echo('Thoughts uploaded!')
+                    
+                    if __name__ == '__main__':
+                        add_thought.main(standalone_mode=False)
+                    continue
+
+                elif menu_options == 3:
                     click.echo('Going back to UserIDs')
     
         else:

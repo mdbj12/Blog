@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 
-from models import db, User, Blog
+from models import db, User, Blog, Thought
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blogging'
@@ -40,6 +40,12 @@ class Blogs(Resource):
         blogs = [blog.to_dict() for blog in Blog.query.all()]
         return make_response(jsonify(blogs), 200)
 api.add_resource(Blogs, '/blogs')
+
+class Thoughts(Resource):
+    def get(self):
+        thoughts = [thought.to_dict() for thought in Thought.query.all()]
+        return make_response(jsonify(thoughts), 200)
+api.add_resource(Thoughts, '/thoughts')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

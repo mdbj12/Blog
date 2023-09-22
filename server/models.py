@@ -40,3 +40,14 @@ class Blog(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     serialize_rules = ('-created_at',)
+
+
+class Thought(db.Model, SerializerMixin):
+    __tablename__ = 'thoughts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    text = db.Column(db.String)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+    serialize_rules = ('-created_at',)
