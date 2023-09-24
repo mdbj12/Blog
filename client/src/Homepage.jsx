@@ -34,9 +34,11 @@ export default function Homepage(){
         <main>
             <Navbar />
             <THREE_D_OBJECT />
-            {/* <div className="landing-page" id="home">
+            <div className="landing-page" id="home">
                 <h1>Welcome to my Blog!</h1>
                 <h2>Just a place for me to dump my thoughts...</h2>
+                <p>Scroll down to see the Book move!</p>
+                <p>Controls: Click and Drag</p>
             </div>
             <div id="blogs" className="blogs">
                 <h1>My Recent Posts</h1>
@@ -53,7 +55,7 @@ export default function Homepage(){
                         <li key={post.id}>{post.text}</li>
                     ))}
                 </ul>
-            </div> */}
+            </div>
         </main>
     )
 }

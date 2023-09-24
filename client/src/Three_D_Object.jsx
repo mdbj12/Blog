@@ -46,11 +46,10 @@ export default function THREE_D_OBJECT() {
 
             // animate based on scroll
             // currentScrollState is adding in a buffer so the animation is smoother
-            currentScrollState += (finalScrollState - currentScrollState) * 0.1
-            const currentXState = currentScrollState * Math.PI
+            currentScrollState += (finalScrollState - currentScrollState) * 0.05
+            const currentXState = currentScrollState * Math.PI * 2
             const currentYState = (currentScrollState * 0.9 + 0.1) * Math.PI
             boxMesh.rotation.set(currentXState, currentYState, 0)
-
             renderer.render(scene, camera)
         }
         animate()
