@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import Navbar from "./Navbar";
 import THREE_D_OBJECT from './THREE_D_OBJECT'
 
