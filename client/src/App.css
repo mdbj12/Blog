@@ -12,7 +12,7 @@ body {
 
 /* hides scroll bar from being seen */
 body::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 }
 
 .app {
