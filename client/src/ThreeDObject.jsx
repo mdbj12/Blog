@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-export default function THREE_D_OBJECT() {
+export default function ThreeDObject() {
     useEffect(() => {
         const scene = new THREE.Scene()
 

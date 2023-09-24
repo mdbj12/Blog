@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./Navbar";
-import THREE_D_OBJECT from './THREE_D_OBJECT'
+import ThreeDObject from "./ThreeDObject";
 
 export default function Homepage(){
     const [blog, setBlog] = useState([])
@@ -33,7 +33,7 @@ export default function Homepage(){
     return (
         <main>
             <Navbar />
-            <THREE_D_OBJECT />
+            <ThreeDObject />
             <div className="landing-page" id="home">
                 <h1>Welcome to my Blog!</h1>
                 <h2>Just a place for me to dump my thoughts...</h2>
