@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, jsonify, session
+from flask import Flask, request, make_response, jsonify, session, render_template
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
@@ -28,6 +28,11 @@ api = Api(app)
 #         else:
 #             return jsonify({user_ip: False}), 403
 # api.add_resource(IPValidation, '/validate-ip')
+
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template('index.html')
 
 class Users(Resource):
     def get(self):
