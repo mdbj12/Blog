@@ -7,6 +7,7 @@ body {
     margin: 0rem;
     /* overflow-x hides and disables the vertical scroll */
     overflow-x: hidden;
+    min-height: calc(3000px + 1000vh);
 }
 
 /* hides scroll bar from being seen */
@@ -66,4 +67,11 @@ nav a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+#threeCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* z-index: 0; */
 }
