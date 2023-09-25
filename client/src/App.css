@@ -15,6 +15,13 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+#threeCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
 .app {
     width: 100vw;
     display: flex;
@@ -73,9 +80,60 @@ nav a {
     justify-content: flex-start;
 }
 
-#threeCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
+.contact-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-dropdown:hover .contact-button {
+    background-color: white;
+}
+
+.contact-dropdown:hover .contact-options {
+    display: block;
+}
+
+.contact-button {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    color: black;
+    padding: 16px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-options {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    animation: slideDown 200ms ease-in-out forwards;
+}
+
+/* styling for each a tag */
+.contact-options a {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* color when cursor is hovering over an a tag */
+.contact-options a:hover {
+    background-color: blue;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

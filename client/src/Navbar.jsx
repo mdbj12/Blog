@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
+import Contact from "./Contact"
 
 export default function Navbar() {
     // const [isAllowed, setIsAllowed] = useState(false)
@@ -24,7 +25,7 @@ export default function Navbar() {
                 <a href="#thoughts">THOUGHTS</a>
             </div>
             <div>
-                <a href="contact">CONTACT ME!</a>
+                <a href="contact"><Contact /></a>
             </div>
         </nav>
     )
